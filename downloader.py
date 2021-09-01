@@ -11,6 +11,7 @@ def downloadUrl(url):#need to be logined to the website
     response = urllib.request.urlopen(url)
     webContent = response.read()
     return webContent
+    return webContent
 
 def getWebData(url):
     # if the Html data of given url is in CSV file then it shows the stored Html data
