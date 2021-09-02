@@ -1,6 +1,6 @@
 import downloader as dd
 
-site = "https://indianarmy.gov.in/home"
+site = "https://opportunities.rbi.org.in/"
 print(site)
 htmlcontent = dd.getUrlContent(site)
 htmlcontent = str(htmlcontent)

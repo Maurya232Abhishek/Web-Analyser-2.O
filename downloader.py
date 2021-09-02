@@ -14,6 +14,7 @@ def getLocalFileName(site):
     filedirectory = "saved/"
     if site.startswith("https://"):
         filename = site.replace("https://", "") + ".txt"
+        filename = filename.replace("/","-")
     else:
         filename = site.replace("http://", "") + ".txt"
     return filedirectory + filename
