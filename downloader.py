@@ -30,7 +30,9 @@ def getWebData(url):
         query = data[data["Url"] == url]
         d = query["Data"]
     return d
+
 def SaveFile(filename, data):
+
     file = open(filename,"w")
     file.write(data)
     file.flush()
@@ -43,6 +45,7 @@ def getLocalFileName(site):
     else:
         filename = site.replace("http://","") + ".txt"
         filename = filename.replace("/", "-")
+
     return filedirectory + filename
 
 
