@@ -30,4 +30,3 @@ def getWebData(url):
         query = data[data["Url"] == url]
         d = query["Data"]
     return d
-
