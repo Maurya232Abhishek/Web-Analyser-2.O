@@ -32,7 +32,6 @@ def getWebData(url):
     return d
 
 def SaveFile(filename, data):
-
     file = open(filename,"w")
     file.write(data)
     file.flush()
