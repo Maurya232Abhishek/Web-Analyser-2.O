@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="eg">
+<head>
+<style>
+.w{
+height:600px;
+width:700px;
+background-color:gray;
+margin-left:25%;
+}
+</style>
+<title>webanalyser</title>
+</head>
+<body text="white" bgcolor="teal">
+<form>
+<div class="w">
+<br>
+<center><h1><b>Web Analyser</b></h1></center>
+<br>
+<center>
+Website:<input type="text" name="url" value="{{data.url}}">  Folder:<input type="text" name="foldername" value="{{data.foldername}}">
+<br>
+<br>
+<br>
+<input type="submit"></center>
+{{data.htmlcontent}}
+</div>
+</form>
+</body>
+</html>
