@@ -1,5 +1,5 @@
-a=int(input(""))
-k=0
+#a=int(input(""))
+"""k=0
 flag=0
 for i in range(1,2*a):
     if i%2==0:
@@ -17,4 +17,8 @@ for i in range(1,2*a):
     if i==a:
         flag=1
     if flag==1:
-        k+=2
+        k+=2"""
+print(bool("kahs"))
+a="abhishek"
+b="ab"
+print(b in a)
