@@ -3,15 +3,22 @@ import pandas as pd
 import requests
 import urllib.request, urllib.error, urllib.parse
 def getUrlContent(url):
-    #Downloads and returns HTML content
-    return requests.get(url).content
-
-def downloadUrl(url):#need to be logined to the website
     #Downloads and returns content
-    response = urllib.request.urlopen(url)
-    webContent = response.read()
-    return webContent
+    try:
+        htmlcontent=requests.get(url).content
+    except:
+        htmlcontent= "NoData"
+    finally:
+        return htmlcontent
 
+def downloadUrl(url):
+    #Downloads and returns content
+    try:
+        response = urllib.request.urlopen(url)
+        webContent = response.read()
+    except:
+        webContent = "NoData"
+    return webContent
 def getWebData(url):
     # if the Html data of given url is in CSV file then it shows the stored Html data
      #else it downloads the html content from internet and stores html data in CSV file and return the same
@@ -30,3 +37,8 @@ def getWebData(url):
         query = data[data["Url"] == url]
         d = query["Data"]
     return d
+"""url="dpL00/"
+data = getUrlContent(url)
+print(data)
+data2 = downloadUrl(url)
+print(data2)"""

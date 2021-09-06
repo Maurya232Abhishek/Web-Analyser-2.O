@@ -23,6 +23,8 @@ def get_all_website_links(url):
 
     internal_urls=set()
     external_urls=set()
+    if not is_valid(url):
+        return internal_urls, external_urls
     domain_name = getDomainName(url)
     htmlcontent =   dd.downloadUrl(url)# requests.get(url).content :It downlaods html content
     soup = bs(htmlcontent, "html.parser")  # arranges Html content as it is written
@@ -49,7 +51,7 @@ def get_all_website_links(url):
     return internal_urls,external_urls
 url="https://www.geeksforgeeks.org/"
 
-print(is_valid(url))
+#print(is_valid(url))
 #print(getDomainName(url))
 #urls =set()
 #domain_name = getDomainName(url)
