@@ -1,4 +1,3 @@
-
 def SaveFile (filename, data):
 
     file = open(filename,"w")
@@ -8,6 +7,7 @@ def SaveFile (filename, data):
 def getLocalFileName(site):
     filedirectory="saved/"
     if site.startswith("https://"):
+
 
         filename = site.replace("https://","") + ".txt"
         filename = filename.replace("/","-")
