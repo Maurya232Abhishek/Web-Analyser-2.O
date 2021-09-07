@@ -17,3 +17,8 @@ def getLocalFileName(site):
         filename = filename.replace("/", "-")
 
     return filedirectory + filename
+def SaveBinaryFile(filename,data): #forimage
+    file=open(filename + ".PNG","wb")
+    file.write(data)
+    file.flush()
+    file.close()

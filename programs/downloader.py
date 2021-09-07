@@ -19,6 +19,9 @@ def downloadUrl(url):
     except:
         webContent = "NoData"
     return webContent
+
+
+
 '''def getWebData(url):
     # if the Html data of given url is in CSV file then it shows the stored Html data
      #else it downloads the html content from internet and stores html data in CSV file and return the same
@@ -42,3 +45,5 @@ data = getUrlContent(url)
 print(data)
 data2 = downloadUrl(url)
 print(data2)"""
+url="https://lh3.googleusercontent.com/p/AF1QipMmODRWLl_DXyr3YbwMbvCgTEAk6gak7HcQkxim=w600-h0"
+#SaveImageFromUrlToFile(url,fil)

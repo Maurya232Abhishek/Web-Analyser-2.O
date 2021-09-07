@@ -17,8 +17,13 @@ def downloadAndSaveUrlLinkData(site):# it downloads htmlcontent of the given lin
         fh.SaveFile(filename, htmlcontent)
 #    for i in external_urls:
 #        htmlcontent += " "+str(dd.getUrlContent(i))
+def SaveImageFromUrlToFile(imageurl,filename):
+    data=dd.getUrlContent(imageurl)
+    fh.SaveBinaryFile(filename,data)
+
 
 site="https://www.instagram.com/p/CIZxK13HaEl2UQ-OKUzsG9oj46e_hFCh2CdpL00/"
-downloadAndSaveUrlLinkData(site)
+#downloadAndSaveUrlLinkData(site)
+SaveImageFromUrlToFile("https://media.istockphoto.com/photos/colorful-sunset-scenery-on-open-field-picture-id1216579927?s=612x612","manjit")
 
 

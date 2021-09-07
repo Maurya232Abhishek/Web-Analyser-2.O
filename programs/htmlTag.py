@@ -10,13 +10,28 @@ def getDivs(htmlcontent): # takes input html content
     for div in divs:
         divisions.append(div)
     return divisions
-def getHeadings(htmlcontent,h):# it takes two input htmlcontent and heading type h1 h2 or h3
+def getHeadings(htmlcontent):# it takes two input htmlcontent and heading type h1 h2 or h3
     scraper = bs(htmlcontent,"html.parser")
-    h1s=scraper.find_all(h)
+    h1s=scraper.find_all("h1")
+    h2s=scraper.find_all("h2")
+    h3s=scraper.find_all("h3")
+    h4s=scraper.find_all("h4")
+    h5s=scraper.find_all("h5")
+    h6s=scraper.find_all("h6")
     headings=[]
-
     for h1 in h1s:
         headings.append(h1)
+    for h2 in h2s:
+        headings.append(h2)
+    for h3 in h3s:
+        headings.append(h3)
+    for h4 in h4s:
+        headings.append(h4)
+    for h5 in h5s:
+        headings.append(h5)
+    for h6 in h6s:
+        headings.append(h6)
+
     return headings
 def getParagraphs(htmlcontent):
     scraper = bs(htmlcontent,"html.parser")
@@ -25,9 +40,9 @@ def getParagraphs(htmlcontent):
     for p in ps:
         paragraphs.append(p)
     return ps
-def getImages(htmlcontent,siteUrl):
+def getImages(htmlcontent,siteUrl): # it givs list of images url and their alt values
     domain = ue.getDomainName(siteUrl)
-    http = ue.urlparse(siteUrl).scheme
+    http = urlparse(siteUrl).scheme
     siteurl = http + "://" +domain
     scraper = bs(htmlcontent, 'html.parser')
     imgs= scraper.find_all("img")
@@ -44,10 +59,8 @@ def getImages(htmlcontent,siteUrl):
 
 url="https://varanasi-software-junction.business.site/"
 
-#div=getParagraphs(dd.downloadUrl(url))
+#div=getHeadings(dd.downloadUrl(url))
 #print((div))
-urls,alts=getImages(dd.downloadUrl(url),url)
-print(urls)
-print(alts)
-
-def getImageSave(htmlcontent,url):
+#urls,alts=getImages(dd.downloadUrl(url),url)
+#print(urls)
+#print(alts)
