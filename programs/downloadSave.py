@@ -23,7 +23,7 @@ def SaveImageFromUrlToFile(imageurl,filename):
 
 
 site="https://www.instagram.com/p/CIZxK13HaEl2UQ-OKUzsG9oj46e_hFCh2CdpL00/"
-#downloadAndSaveUrlLinkData(site)
+downloadAndSaveUrlLinkData(site)
 SaveImageFromUrlToFile("https://media.istockphoto.com/photos/colorful-sunset-scenery-on-open-field-picture-id1216579927?s=612x612","manjit")
 
 
