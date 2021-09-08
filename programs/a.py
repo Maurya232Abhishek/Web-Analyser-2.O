@@ -1,3 +1,4 @@
+from nltk.corpus import stopwords as sw
 #a=int(input(""))
 """k=0
 flag=0
@@ -22,3 +23,9 @@ print(bool("kahs"))
 a="abhishek"
 b="ab"
 print(b in a)
+list=["this","punit","is","punit","that","punit","that","abhishek","ran","punit","is"]
+stops = sw.words('english')
+for i in list:
+    if i in stops:
+        list.remove(i)
+print(list)
