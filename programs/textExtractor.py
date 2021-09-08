@@ -21,8 +21,23 @@ def headingsText(data): #This function takes input htmlcontent and produces a st
     for i in headings:
         output = output +" "+i.text
     return output
+def paragraphsText(data): #This function takes input htmlcontent and produces a string of text inside pragraph tag
+    paragraphs = ht.getParagraphs(data)
+    output=""
+    for i in paragraphs:
+        output += " " + i.text
+    return output
+def altText(data):#This function takes input htmlcontent and url of website and produces a string alts
+    alts = ht.getImageAlts(data)
+    output=""
+    for i in alts:
+        if i==None:
+            continue
+        output += " , "+ str(i)
+    return output
+#def CompleteText(data):
 
 
 #url = "https://varanasi-software-junction.business.site/"
-#text = headingsText(dd.downloadUrl(url))
+#text = altText(dd.downloadUrl(url))
 #print(text)

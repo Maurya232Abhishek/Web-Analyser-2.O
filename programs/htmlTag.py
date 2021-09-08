@@ -40,7 +40,7 @@ def getParagraphs(htmlcontent):
     for p in ps:
         paragraphs.append(p)
     return ps
-def getImages(htmlcontent,siteUrl): # it givs list of images url and their alt values
+def getImageUrls(htmlcontent,siteUrl): # it givs list of images url and their alt values
     domain = ue.getDomainName(siteUrl)
     http = urlparse(siteUrl).scheme
     siteurl = http + "://" +domain
@@ -54,7 +54,15 @@ def getImages(htmlcontent,siteUrl): # it givs list of images url and their alt v
         newurl=urljoin(siteurl,src)
         imgurls.append(newurl)
         imgalts.append(alt)
-    return imgurls, imgalts
+    return imgurls
+def getImageAlts(htmlcontent): # it givs list of images url and their alt values
+    scraper = bs(htmlcontent, 'html.parser')
+    imgs= scraper.find_all("img")
+    imgalts=[]
+    for img in imgs:
+        alt= img.get('alt')
+        imgalts.append(alt)
+    return imgalts
 
 
 url="https://varanasi-software-junction.business.site/"
@@ -64,3 +72,9 @@ url="https://varanasi-software-junction.business.site/"
 #urls,alts=getImages(dd.downloadUrl(url),url)
 #print(urls)
 #print(alts)
+#htmlcontent=dd.downloadUrl(url)
+#print(htmlcontent)
+#print(htmlcontent.find_all("div"))
+#html = bs(htmlcontent,"html.parser")
+#print(html.find_all("img"))
+#print(html)
