@@ -1,6 +1,7 @@
 import downloader as dd
 import  filehandling as fh
 import urlExtractor as ue
+import htmlTag as ht
 
 def downloadAndSave(site): # it downloads only html content of the given link
     htmlcontent = dd.getUrlContent(site)
@@ -17,13 +18,18 @@ def downloadAndSaveUrlLinkData(site):# it downloads htmlcontent of the given lin
         fh.SaveFile(filename, htmlcontent)
 #    for i in external_urls:
 #        htmlcontent += " "+str(dd.getUrlContent(i))
-def SaveImageFromUrlToFile(imageurl,filename):
+def saveImageFromUrlToFile(imageurl,filename):
     data=dd.getUrlContent(imageurl)
     fh.SaveBinaryFile(filename,data)
+def download_all_images(htmlcontent,siteurl):
+    urls = ht.getImageUrls(htmlcontent,siteurl)
+    for url in urls:
+        saveImageFromUrlToFile(url,fh.getLocalPicName(url))
 
 
-site="https://www.instagram.com/p/CIZxK13HaEl2UQ-OKUzsG9oj46e_hFCh2CdpL00/"
+
+site="https://varanasi-software-junction.business.site/"
 #downloadAndSaveUrlLinkData(site)
-SaveImageFromUrlToFile("https://media.istockphoto.com/photos/colorful-sunset-scenery-on-open-field-picture-id1216579927?s=612x612","manjit")
-
+#SaveImageFromUrlToFile("https://media.istockphoto.com/photos/colorful-sunset-scenery-on-open-field-picture-id1216579927?s=612x612","manjit")
+download_all_images(dd.downloadUrl(site),site)
 
