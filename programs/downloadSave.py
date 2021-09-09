@@ -28,6 +28,7 @@ def download_all_images(htmlcontent,siteurl):
 
 
 
+
 site="https://varanasi-software-junction.business.site/"
 #downloadAndSaveUrlLinkData(site)
 #SaveImageFromUrlToFile("https://media.istockphoto.com/photos/colorful-sunset-scenery-on-open-field-picture-id1216579927?s=612x612","manjit")

@@ -35,9 +35,44 @@ def altText(data):#This function takes input htmlcontent and url of website and 
             continue
         output += " , "+ str(i)
     return output
-#def CompleteText(data):
+def completeText(data):#this function takes htmlcontent as input nd returns strings which contains all the text of the html content
+    text=divsText(data)+headingsText(data)+paragraphsText(data)+altText(data)
+    return text
+def sentence(data):# this program takes html content as input and returns the list of the sentences
+    text=completeText(data)
+    sentences = st(text)
+    return sentences
+def words(data):#this program takes html content as input and returns the list of the words
+    text=completeText(data)
+    words=wt(text)
+    return words
+def wordswithfrequencies(data):#this function take words of list and produce the frquencies of all words
+    text=words(data)
+    wordswithfrequencies=nltk.FreqDist(text)
+    Keyvaluepairs=wordswithfrequencies.items()
+    return Keyvaluepairs
+def stopwords():#this function all stopwords of english words
+    stops= sw.words('english')
+    return stops
+def removestopwords(data):#this function remove all stopwords of given data(or input)
+    text=completeText(data)
+    stops=stopwords()
+    tokens=wt(text)
+    tokenscopy=tokens.copy()
+    print(len(tokens))
+
+    for token in tokenscopy:
+        if token.lower() in stops:
+            tokens.remove(token)
+    return tokens
 
 
-#url = "https://varanasi-software-junction.business.site/"
-#text = altText(dd.downloadUrl(url))
-#print(text)
+url = "https://varanasi-software-junction.business.site/"
+text = removestopwords(dd.downloadUrl(url))
+#text2 = words(dd.downloadUrl(url))
+
+
+
+print(('this' in text))
+print(len(text))
+
