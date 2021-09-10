@@ -116,7 +116,7 @@ def OneBishopMove(board,y,x):
         x2 -= 1
         y2 -= 1# x1 - c2
 
-"""b=getBoard()
+b=getBoard()
 #printBoard(b)
 b[1][1]=1
 
@@ -129,11 +129,11 @@ for i in range(6):
         OneHorseMove(b,y,x)
 print(horseSet)
 printBoard(b)
-"""
+
 b2=getBoard()
 b2[1][1]=1
 bishopSet.add((1,1))
-for i in range(4):
+for i in range(3):
     copyset=bishopSet.copy()
     for s in copyset:
         y=s[0]

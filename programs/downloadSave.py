@@ -26,10 +26,7 @@ def download_all_images(htmlcontent,siteurl):
     for url in urls:
         saveImageFromUrlToFile(url,fh.getLocalPicName(url))
 
-
-
-
-site="https://varanasi-software-junction.business.site/"
+site="https://aktu.ac.in/"
 #downloadAndSaveUrlLinkData(site)
 #SaveImageFromUrlToFile("https://media.istockphoto.com/photos/colorful-sunset-scenery-on-open-field-picture-id1216579927?s=612x612","manjit")
 download_all_images(dd.downloadUrl(site),site)

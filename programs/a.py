@@ -28,4 +28,6 @@ stops = sw.words('english')
 for i in list:
     if i in stops:
         list.remove(i)
-print(list)
+d = {"ramesh":6,"suresh":7,"nitesh":9,"punit":8}
+print(set(d.keys()))
+

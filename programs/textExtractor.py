@@ -1,5 +1,5 @@
 import nltk
-import matplotlib.pyplot as plt
+
 from nltk.tokenize import sent_tokenize as st
 from nltk.tokenize import word_tokenize as wt
 from nltk.corpus import stopwords as sw
@@ -46,7 +46,7 @@ def words(data):#this program takes html content as input and returns the list o
     text=completeText(data)
     words=wt(text)
     return words
-def wordswithfrequencies(data):#this function take words of list and produce the frquencies of all words
+def wordsWithFrequencies(data):#this function take words of list and produce the frquencies of all words
     text=words(data)
     wordswithfrequencies=nltk.FreqDist(text)
     Keyvaluepairs=wordswithfrequencies.items()
@@ -54,25 +54,30 @@ def wordswithfrequencies(data):#this function take words of list and produce the
 def stopwords():#this function all stopwords of english words
     stops= sw.words('english')
     return stops
-def removestopwords(data):#this function remove all stopwords of given data(or input)
+def removeStopWords(data):#this function remove all stopwords of given data(or input)
     text=completeText(data)
     stops=stopwords()
     tokens=wt(text)
     tokenscopy=tokens.copy()
-    print(len(tokens))
+    #print(len(tokens))
 
     for token in tokenscopy:
         if token.lower() in stops:
             tokens.remove(token)
     return tokens
+def wordWithFrequenciesWithoutStopWord(data):
+    #this function plot graph between frequencies and the words(after removal of stop words)
+    text=removeStopWords(data)
+    wf=nltk.FreqDist(text)
+    print(wf)
+    kvp=wf.items()
+    return kvp
 
 
-url = "https://varanasi-software-junction.business.site/"
-text = removestopwords(dd.downloadUrl(url))
-#text2 = words(dd.downloadUrl(url))
 
-
-
-print(('this' in text))
-print(len(text))
+#url = "https://varanasi-software-junction.business.site/"
+#text = wordWithFrequenciesWithoutStopWord(dd.downloadUrl(url))
+#text2 = removeStopWords(dd.downloadUrl(url))
+#print(len(text2))
+#print(len(text))
 
