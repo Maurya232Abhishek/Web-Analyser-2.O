@@ -11,9 +11,6 @@ file = open('Text',"a")
 #or
 #print(file.read(10)) # upto nine word
 # writing files
-file.write("I am persuing my B.Tech from IIIT Bhagalpur.")
-file.write("hi")
-file.close()
-s=[1,2,3,4,5]
-p = s.all()
+s="Punit Manas Manjit aBh"
+print(s.lower())
 

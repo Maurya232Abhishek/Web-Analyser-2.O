@@ -4,6 +4,7 @@ from nltk.tokenize import sent_tokenize as st
 from nltk.tokenize import word_tokenize as wt
 from nltk.corpus import stopwords as sw
 import htmlTag as ht
+import trainingSet as t
 import downloader as dd
 import urlExtractor as ue
 
@@ -33,10 +34,10 @@ def altText(data):#This function takes input htmlcontent and url of website and 
     for i in alts:
         if i==None:
             continue
-        output += " , "+ str(i)
+        output += " "+ str(i)
     return output
 def completeText(data):#this function takes htmlcontent as input nd returns strings which contains all the text of the html content
-    text=divsText(data)+headingsText(data)+paragraphsText(data)+altText(data)
+    text=divsText(data)+" "+headingsText(data)+" "+paragraphsText(data)+" "+altText(data)
     return text
 def sentence(data):# this program takes html content as input and returns the list of the sentences
     text=completeText(data)
@@ -55,7 +56,7 @@ def stopwords():#this function all stopwords of english words
     stops= sw.words('english')
     return stops
 def removeStopWords(data):#this function remove all stopwords of given data(or input)
-    text=completeText(data)
+    text=completeText(data).lower()
     stops=stopwords()
     tokens=wt(text)
     tokenscopy=tokens.copy()
@@ -72,12 +73,53 @@ def wordWithFrequenciesWithoutStopWord(data):
     print(wf)
     kvp=wf.items()
     return kvp
+def getSet(data):
+#this function convert the words(after removel of stop words) into set of given data(or input)
+    words=removeStopWords(data)
+    text=nltk.FreqDist(words)
+    n=text.keys()
+   # print(n)
+    s1=set()
+    for x in n:
+        s1.add(x)
+    return s1
+def trainingset():
+#this function produces the training set
+    m=t.training()
+    return m
+def intersectionset(data):
+#this functtion produce the intersection of training and getset
+    s1=trainingset()
+    s2=getSet(data)
+    m=s1.intersection(s2)
+    return m
+def dict1(data):
+#this functon convert words list into a dictionary
+    word=words(data)
+    text=nltk.FreqDist(word)
+    return text
+def frequincyOfIntersectionsSet(data):
+#this function produce frequincy of intersections of sets(trainingset and getset)
+    l=list(intersectionset(data))
+    text=dict1(data)
+    l2=[]
+    l3=[]
+    for word in l:
+        l2.append(word)
+        l3.append(text[word])
+    res={l2[i]: l3[i] for i in range(len(l2))}
+    return res
 
 
 
-#url = "https://varanasi-software-junction.business.site/"
+
+#url = "https://www.geeksforgeeks.org/"
 #text = wordWithFrequenciesWithoutStopWord(dd.downloadUrl(url))
 #text2 = removeStopWords(dd.downloadUrl(url))
-#print(len(text2))
+#data=dd.downloadUrl(url)
+#dict=frequincyOfIntersectionsSet(data)
+
+#print(nltk.FreqDist(dict).items())
+#print(intersectionset(data))
 #print(len(text))
 
