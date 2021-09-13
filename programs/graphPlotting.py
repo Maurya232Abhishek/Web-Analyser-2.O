@@ -33,5 +33,5 @@ def getSet(data):
 
 url= "https://varanasi-software-junction.business.site/"
 data = dd.downloadUrl(url)
-print(getSet(data))
+print(Rplot(data))
 
