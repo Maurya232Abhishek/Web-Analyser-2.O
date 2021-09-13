@@ -14,3 +14,6 @@ file = open('Text',"a")
 file.write("I am persuing my B.Tech from IIIT Bhagalpur.")
 file.write("hi")
 file.close()
+s=[1,2,3,4,5]
+p = s.all()
+
