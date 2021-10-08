@@ -113,7 +113,7 @@ def frequincyOfIntersectionsSet(data):
 
 
 
-#url = "https://www.geeksforgeeks.org/"
+url = "https://www.geeksforgeeks.org/"
 #text = wordWithFrequenciesWithoutStopWord(dd.downloadUrl(url))
 #text2 = removeStopWords(dd.downloadUrl(url))
 #data=dd.downloadUrl(url)

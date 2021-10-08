@@ -65,8 +65,9 @@ def getImageAlts(htmlcontent): # it givs list of images url and their alt values
     return imgalts
 
 
-url="https://varanasi-software-junction.business.site/"
+url="https://www.geeksforgeeks.org/"
 
+print(getDivs(url))
 #div=getHeadings(dd.downloadUrl(url))
 #print((div))
 #urls,alts=getImages(dd.downloadUrl(url),url)
